@@ -1,97 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fares Mohammed | Network Security Engineer</title>
-<style>
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#0f172a;color:#e5e7eb}
-header{background:#020617;padding:40px;text-align:center}
-h1{margin:0;font-size:36px}
-h2{border-bottom:1px solid #334155;padding-bottom:6px}
-.container{max-width:1000px;margin:auto;padding:20px}
-.card{background:#111827;padding:20px;margin:20px 0;border-radius:10px}
-ul{padding-left:20px}
-footer{text-align:center;padding:20px;background:#020617;margin-top:40px}
-a.button{display:inline-block;margin:5px;padding:10px 15px;background:#334155;color:#e5e7eb;text-decoration:none;border-radius:5px;transition:0.3s}
-a.button:hover{background:#1f2937}
-.usp{background:#1f2937;padding:15px;margin:20px 0;text-align:center;font-style:italic;border-left:5px solid #334155}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fares Mohammed | Cybersecurity Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #e5e7eb;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(37,99,235,0.18), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(16,185,129,0.12), transparent 22%),
+        radial-gradient(circle at 50% 80%, rgba(59,130,246,0.12), transparent 25%),
+        linear-gradient(180deg, #020617 0%, #0b1120 45%, #020617 100%);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(148,163,184,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow, .glow2, .glow3 {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatGlow 10s ease-in-out infinite;
+    }
+
+    .glow {
+      width: 260px; height: 260px;
+      background: #2563eb;
+      top: 6%; left: 4%;
+    }
+
+    .glow2 {
+      width: 220px; height: 220px;
+      background: #0ea5e9;
+      top: 45%; right: 6%;
+      animation-delay: 2s;
+    }
+
+    .glow3 {
+      width: 200px; height: 200px;
+      background: #10b981;
+      bottom: 6%; left: 35%;
+      animation-delay: 4s;
+    }
+
+    @keyframes floatGlow {
+      0%,100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-24px) translateX(16px) scale(1.08); }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(2,6,23,0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148,163,184,0.14);
+    }
+
+    .nav-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: bold;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover { color: #60a5fa; }
+
+    header {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px 40px;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .profile {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(96,165,250,0.5);
+      box-shadow: 0 0 30px rgba(37,99,235,0.35);
+      margin-bottom: 22px;
+      animation: pulseBorder 3.2s ease-in-out infinite;
+    }
+
+    @keyframes pulseBorder {
+      0%,100% { box-shadow: 0 0 20px rgba(37,99,235,0.25); }
+      50% { box-shadow: 0 0 42px rgba(37,99,235,0.5); }
+    }
+
+    h1 {
+      font-size: 46px;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      font-size: 19px;
+      color: #93c5fd;
+      margin: 12px 0 18px;
+    }
+
+    .usp {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 14px 20px;
+      border: 1px solid rgba(96,165,250,0.25);
+      background: rgba(15,23,42,0.7);
+      border-radius: 14px;
+      font-style: italic;
+      color: #dbeafe;
+      box-shadow: 0 0 20px rgba(2,132,199,0.12);
+    }
+
+    .hero-buttons {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.25s;
+      font-weight: bold;
+      border: 1px solid rgba(148,163,184,0.18);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: white;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.25);
+    }
+
+    .button-secondary {
+      background: rgba(15,23,42,0.8);
+      color: #e5e7eb;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 20px 50px;
+    }
+
+    .section {
+      margin: 26px 0;
+      padding: 26px;
+      border-radius: 18px;
+      background: rgba(17,24,39,0.78);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(148,163,184,0.1);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.28);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 28px;
+      color: #ffffff;
+      border-bottom: 1px solid rgba(148,163,184,0.15);
+      padding-bottom: 10px;
+    }
+
+    p, li {
+      color: #d1d5db;
+      line-height: 1.75;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card, .mini-card {
+      background: rgba(2,6,23,0.6);
+      border: 1px solid rgba(148,163,184,0.12);
+      padding: 18px;
+      border-radius: 14px;
+      transition: 0.25s;
+    }
+
+    .skill-card:hover, .mini-card:hover, .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(37,99,235,0.14);
+      border-color: rgba(96,165,250,0.3);
+    }
+
+    .project-highlight {
+      border-left: 4px solid #38bdf8;
+      padding-left: 16px;
+      margin-bottom: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-card {
+      background: rgba(2,6,23,0.62);
+      border: 1px solid rgba(148,163,184,0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      background: #0f172a;
+    }
+
+    .gallery-content {
+      padding: 16px;
+    }
+
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .certificate-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.14);
+      background: #0f172a;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px 38px;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 700px) {
+      h1 { font-size: 34px; }
+      .subtitle { font-size: 16px; }
+      .profile { width: 140px; height: 140px; }
+      .gallery-card img, .certificate-grid img { height: 210px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="bg-grid"></div>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  <div class="glow3"></div>
 
-<header>
-<h1>Fares Mohammed</h1>
-<img src="profile.jpg" alt="Fares Mohammed" style="width:150px;height:150px;border-radius:50%;margin-top:15px;border:3px solid #334155;object-fit:cover;">
-<p>Network & Network Security Engineer | Cybersecurity Enthusiast</p>
-</header>
+  <div class="page">
+    <nav class="navbar">
+      <div class="nav-inner">
+        <div class="brand">Fares Mohammed</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#works">My Work</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
 
-<div class="container">
+    <header>
+      <div class="hero">
+        <img src="profile.jpg" alt="Fares Mohammed" class="profile" />
+        <h1>Fares Mohammed</h1>
+        <div class="subtitle">Network & Network Security Engineer | Cybersecurity Enthusiast</div>
+        <div class="usp">Your security is our priority, and your data is our responsibility.</div>
+        <div class="hero-buttons">
+          <a href="#projects" class="button button-primary">View Projects</a>
+          <a href="#contact" class="button button-secondary">Contact Me</a>
+        </div>
+      </div>
+    </header>
 
-<div class="usp">Your security is our priority, and your data is our responsibility.</div>
+    <div class="container">
+      <section class="section" id="about">
+        <h2>About Me</h2>
+        <p>
+          I am a Network and Network Security Engineer with hands-on experience in designing, implementing, and securing enterprise network infrastructures. My background includes VLAN segmentation, static routing, firewall deployment, high availability design, IPsec VPN implementation, and network traffic analysis using Wireshark.
+        </p>
+        <p>
+          I also practice offensive security in controlled lab environments using Metasploit and network attack simulations to better understand vulnerabilities, attacker behavior, and defensive controls. My goal is to build a strong professional career as a SOC Analyst or Network Security Engineer.
+        </p>
+      </section>
 
-<div class="card">
-<h2>Professional Summary</h2>
-<p>Network and Network Security Engineer with hands-on experience in designing, implementing, and securing network infrastructures. Skilled in VLAN segmentation, Static Routing, firewall architecture with High Availability, and IPsec VPN implementation. Experienced in network traffic analysis using Wireshark and security testing using Metasploit in controlled lab environments.</p>
-</div>
+      <section class="section" id="skills">
+        <h2>Technical Skills</h2>
+        <div class="grid">
+          <div class="skill-card">
+            <h3>Networking</h3>
+            <p>Network Design, VLANs, Static Routing, DHCP, DNS, IP Address Planning, Inter-VLAN Communication.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Network Security</h3>
+            <p>Firewall Configuration, High Availability, IPsec VPN, ACLs, IDS/IPS Concepts, Network Segmentation.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Monitoring & Analysis</h3>
+            <p>Wireshark Packet Analysis, TCP 3-Way Handshake Analysis, Session Monitoring, Suspicious Traffic Observation.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Security Labs</h3>
+            <p>Metasploit, SMB Exploitation, Internal Attack Simulation, ARP Spoofing, DHCP Attacks, DoS Testing.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Platforms & Tools</h3>
+            <p>Cisco Packet Tracer, Huawei eNSP, FortiGate, VMware, Linux, Network Lab Environments.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Career Focus</h3>
+            <p>SOC Analysis, Threat Detection, Incident Analysis, Enterprise Network Defense, Secure Infrastructure Design.</p>
+          </div>
+        </div>
+      </section>
 
-<div class="card">
-<h2>Projects</h2>
-<h3>Secure Enterprise Network Infrastructure Design</h3>
-<ul>
-<li>Network segmentation using VLANs</li>
-<li>Static routing between networks</li>
-<li>DHCP server deployment</li>
-<li>Dual firewall architecture</li>
-<li>High Availability (Active / Standby)</li>
-<li>IPsec VPN secure communication</li>
-<li>IDS monitoring</li>
-<li>Network analysis using Wireshark</li>
-</ul>
-</div>
+      <section class="section" id="projects">
+        <h2>Featured Project</h2>
+        <div class="project-highlight">
+          <h3>Enterprise Network Security Final Project</h3>
+          <p>
+            A complete enterprise network security project that demonstrates infrastructure design, network services, segmentation, firewall protection, VPN connectivity, and attack simulation in a multi-branch environment.
+          </p>
+        </div>
 
-<div class="card">
-<h2>Offensive Security Lab</h2>
-<ul>
-<li>SMB exploitation using Metasploit</li>
-<li>Internal attack simulation in lab environment</li>
-<li>Post-exploitation behavior analysis</li>
-</ul>
-</div>
+        <div class="grid">
+          <div class="mini-card">
+            <h3>Infrastructure Design</h3>
+            <p>Routers, Layer 2/Layer 3 switches, branch connectivity, VLAN design, trunking, inter-VLAN routing, and service integration.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Services</h3>
+            <p>DHCP, DNS, Web Server, Email Server, internal communication, and controlled access between network segments.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Security Controls</h3>
+            <p>FortiGate firewall, policies, IPS, web filtering, antivirus, port security, DHCP snooping, SSH-only access, and management VLAN.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Secure Connectivity</h3>
+            <p>Site-to-Site IPsec VPN, NAT, routing control, high availability, and secure branch-to-branch communication.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Attack Simulation</h3>
+            <p>DoS, flooding, ARP spoofing, DHCP attacks, MAC spoofing, and scanning activity to test resilience and defense mechanisms.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Proof of Work</h3>
+            <p>Project presentation, topology screenshots, firewall lab design, and certificates are included below as evidence of practical work.</p>
+          </div>
+        </div>
 
-<div class="card">
-<h2>Technical Skills</h2>
-<ul>
-<li>Network Design</li>
-<li>VLAN Configuration</li>
-<li>Static Routing</li>
-<li>Firewall Configuration</li>
-<li>IPsec VPN</li>
-<li>IDS Monitoring</li>
-<li>Wireshark</li>
-<li>Metasploit</li>
-<li>Linux</li>
-<li>VMware</li>
-</ul>
-</div>
+        <div class="contact-links" style="margin-top:20px;">
+          <a href="Final_Project.pptx" class="button button-primary" download>Download Project Presentation</a>
+        </div>
+      </section>
 
-<div class="card">
-<h2>Career Objective</h2>
-<p>Seeking to build a professional career as a SOC Analyst or Network Security Engineer focusing on threat detection, incident analysis, and securing enterprise networks.</p>
-</div>
+      <section class="section" id="works">
+        <h2>My Work</h2>
+        <div class="gallery">
+          <div class="gallery-card">
+            <img src="work-1.jpeg" alt="Huawei eNSP wireless and switching topology" />
+            <div class="gallery-content">
+              <h3>Huawei eNSP Lab</h3>
+              <p>Wireless and switching topology built in Huawei eNSP, showing AP deployment, switching, routing, and controller integration.</p>
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img src="work-2.jpeg" alt="Firewall high availability and zones lab" />
+            <div class="gallery-content">
+              <h3>Firewall HA & Zones</h3>
+              <p>Practical firewall design including Active/Standby deployment, trust, untrust, and DMZ zones, with NAT and VPN concepts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="card">
-<h2>Contact</h2>
-<p>📞 Phone: <a href="tel:01116879682" style="color:#e5e7eb;">01116879682</a></p>
-<p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/fares-aboelrous/" target="_blank" class="button">LinkedIn Profile</a></p>
-<p>💻 GitHub: <a href="https://github.com/fares-aboelrous" target="_blank" class="button">GitHub Profile</a></p>
-</div>
+      <section class="section" id="certificates">
+        <h2>Certificates</h2>
+        <div class="certificate-grid">
+          <div class="gallery-card">
+            <img src="cert-ccna.jpeg" alt="CCNA Routing and Switching Certificate" />
+            <div class="gallery-content">
+              <h3>CCNA - Routing and Switching</h3>
+              <p>Completed through NTI / Digital Egypt Youth Program with a score of 97%.</p>
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img src="cert-hcia.jpeg" alt="HCIA Security Certificate" />
+            <div class="gallery-content">
+              <h3>HCIA - Security</h3>
+              <p>Completed through NTI / Huawei Egyptian Talent Academy Track.</p>
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img src="cert-network-security.jpeg" alt="Network Security Certificate" />
+            <div class="gallery-content">
+              <h3>Network Security</h3>
+              <p>Completed through the Evening Digital Egypt Youth Program with a score of 92%.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-</div>
+      <section class="section" id="contact">
+        <h2>Contact</h2>
+        <p>Let’s connect for networking, cybersecurity, and secure infrastructure opportunities.</p>
+        <p>Phone: <a href="tel:01116879682" style="color:#93c5fd; text-decoration:none;">01116879682</a></p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/fares-aboelrous/" target="_blank" class="button button-primary">LinkedIn</a>
+          <a href="https://github.com/fares-aboelrous" target="_blank" class="button button-secondary">GitHub</a>
+        </div>
+      </section>
+    </div>
 
-<footer>
-<p>© 2026 Fares Mohammed</p>
-</footer>
-
+    <footer>
+      © 2026 Fares Mohammed | Cybersecurity Portfolio
+    </footer>
+  </div>
 </body>
 </html>
